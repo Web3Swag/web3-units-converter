@@ -1,6 +1,6 @@
 # Web3 Units Converter
 
-A simple, precise Ethereum units converter based on bignumber.js.
+An intuitive and precise Ethereum converter tool, adept at handling wei, eth, and custom token units, all built on the robust bignumber.js.
 
 ## Features
 Convert between Ethereum's wei and eth units.
