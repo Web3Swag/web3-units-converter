@@ -1,7 +1,7 @@
 {
   "name": "@web3swag/web3-units-converter",
-  "version": "1.0.0",
-  "description": "Wei to Eth & Eth or Wei, Token to Wei & Wei to Token Converter",
+  "version": "1.0.1",
+  "description": "An intuitive and precise Ethereum converter tool, adept at handling wei, eth, and custom token units, all built on the robust bignumber.js",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
