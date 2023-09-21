@@ -1,0 +1,29 @@
+{
+  "name": "@web3swag/web3-units-converter",
+  "version": "0.0.1",
+  "description": "Wei to Eth & Eth or Wei, Token to Wei & Wei to Token Converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "ethereum",
+    "format",
+    "units",
+    "conversion",
+    "eth",
+    "convert",
+    "token",
+    "wei",
+    "web3swag"
+  ],
+  "author": "oxRajesh",
+  "license": "MIT",
+  "dependencies": {
+    "bignumber.js": "^9.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0"
+  }
+}
