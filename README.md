@@ -18,6 +18,12 @@ Import the library:
 const converter = require('@web3swag/web3-units-converter');
 ```
 
+## Test
+To run test cases
+```
+npm test
+```
+
 ## Examples:
 
 #### Convert Eth to Wei
