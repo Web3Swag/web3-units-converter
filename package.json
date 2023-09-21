@@ -1,6 +1,6 @@
 {
   "name": "@web3swag/web3-units-converter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Wei to Eth & Eth or Wei, Token to Wei & Wei to Token Converter",
   "main": "index.js",
   "scripts": {
