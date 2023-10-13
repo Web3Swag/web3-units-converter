@@ -1,10 +1,13 @@
 {
   "name": "@web3swag/web3-units-converter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An intuitive and precise Ethereum converter tool, adept at handling wei, eth, and custom token units, all built on the robust bignumber.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -r ts-node/register test/*.ts",
+    "build": "tsc",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
   },
   "keywords": [
     "ethereum",
@@ -23,8 +26,13 @@
     "bignumber.js": "^9.1.2"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.8",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.5",
     "chai": "^4.3.8",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   },
   "directories": {
     "test": "test"

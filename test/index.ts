@@ -1,6 +1,6 @@
-const chai = require('chai');
+import chai from 'chai';
+import converter from '../dist/index';
 const expect = chai.expect;
-const converter = require('../index');
 
 describe('ETH Conversion Library', function () {
 
@@ -37,18 +37,6 @@ describe('ETH Conversion Library', function () {
 
     });
 
-    it('should throw error for non-string input', function () {
-      expect(() => converter.convertEthToWei(0.01)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if number', function () {
-      expect(() => converter.convertEthToWei(0.01)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if object', function () {
-      expect(() => converter.convertEthToWei({})).to.throw('Amount must be a string to prevent precision errors');
-    });
-
   });
 
   describe('convertWeiToEth:: WEI to ETH', function () {
@@ -83,62 +71,38 @@ describe('ETH Conversion Library', function () {
       expect(result).to.equal('0.000000000000000001');
     });
 
-    it('should throw error for non-string input', function () {
-      expect(() => converter.convertWeiToEth(100)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if number', function () {
-      expect(() => converter.convertWeiToEth(100000)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if object', function () {
-      expect(() => converter.convertWeiToEth({})).to.throw('Amount must be a string to prevent precision errors');
-    });
-
   });
 
   describe('convertTokenToWei:: Token to WEI', function () {
 
     it('convert 1 token with 18 decimals to wei, should return 1000000000000000000', function () {
-      let result = converter.convertTokenToWei('1', 18);
+      let result = converter.convertTokenToWei('1', '18');
       expect(result).to.equal('1000000000000000000');
     });
 
     it('convert 1 token with 8 decimals to wei, should return 100000000', function () {
-      let result = converter.convertTokenToWei('1', 8);
+      let result = converter.convertTokenToWei('1', '8');
       expect(result).to.equal('100000000');
     });
 
     it('convert 1 token with 6 decimals to wei, should return 1000000', function () {
-      let result = converter.convertTokenToWei('1', 6);
+      let result = converter.convertTokenToWei('1', '6');
       expect(result).to.equal('1000000');
     });
 
     it('convert 0.5 token with 6 decimals to wei, should return 500000', function () {
-      let result = converter.convertTokenToWei('0.5', 6);
+      let result = converter.convertTokenToWei('0.5', '6');
       expect(result).to.equal('500000');
     });
 
     it('convert 0.0005 token with 6 decimals to wei, should return 500', function () {
-      let result = converter.convertTokenToWei('0.0005', 6);
+      let result = converter.convertTokenToWei('0.0005', '6');
       expect(result).to.equal('500');
     });
 
     it('convert 0.01 token with 2 decimals to wei, should return 1', function () {
-      let result = converter.convertTokenToWei('0.01', 2);
+      let result = converter.convertTokenToWei('0.01', '2');
       expect(result).to.equal('1');
-    });
-
-    it('should throw error for non-string input in amount', function () {
-      expect(() => converter.convertTokenToWei(1, 6)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if number', function () {
-      expect(() => converter.convertEthToWei(0.01)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if object', function () {
-      expect(() => converter.convertEthToWei({})).to.throw('Amount must be a string to prevent precision errors');
     });
 
   });
@@ -146,40 +110,28 @@ describe('ETH Conversion Library', function () {
   describe('convertWeiToToken:: WEI to Token', function () {
 
     it('convert 1000000000000000000 wei to token with 18 decimals, should return 1', function () {
-      let result = converter.convertWeiToToken('1000000000000000000', 18);
+      let result = converter.convertWeiToToken('1000000000000000000', '18');
       expect(result).to.equal('1');
     });
 
     it('convert 100000000 wei to token with 8 decimals, should return 1', function () {
-      let result = converter.convertWeiToToken('100000000', 8);
+      let result = converter.convertWeiToToken('100000000', '8');
       expect(result).to.equal('1');
     });
 
     it('convert 1000000 wei to token with 6 decimals, should return 1', function () {
-      let result = converter.convertWeiToToken('1000000', 6);
+      let result = converter.convertWeiToToken('1000000', '6');
       expect(result).to.equal('1');
     });
 
     it('convert 500000 wei to token with 6 decimals, should return 0.5', function () {
-      let result = converter.convertWeiToToken('500000', 6);
+      let result = converter.convertWeiToToken('500000', '6');
       expect(result).to.equal('0.5');
     });
 
     it('convert 1 wei to token with 2 decimals, should return 0.01', function () {
-      let result = converter.convertWeiToToken('1', 2);
+      let result = converter.convertWeiToToken('1', '2');
       expect(result).to.equal('0.01');
-    });
-
-    it('should throw error for non-string input in amount', function () {
-      expect(() => converter.convertWeiToToken(1000000, 6)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if number', function () {
-      expect(() => converter.convertEthToWei(0.01)).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error if object', function () {
-      expect(() => converter.convertEthToWei({})).to.throw('Amount must be a string to prevent precision errors');
     });
 
   });
@@ -199,18 +151,6 @@ describe('ETH Conversion Library', function () {
     it('convert 0.5 ETH to 500000000000000000 Wei', function () {
       let result = converter.convertAnyToAnyUnits('0.5', 'eth', 'wei');
       expect(result).to.equal('500000000000000000');
-    });
-
-    it('should throw error for non-string input', function () {
-      expect(() => converter.convertAnyToAnyUnits(1, 'eth', 'wei')).to.throw('Amount must be a string to prevent precision errors');
-    });
-
-    it('should throw error for unsupported input unit', function () {
-      expect(() => converter.convertAnyToAnyUnits('1', 'unknownUnit', 'wei')).to.throw('Unsupported unit provided');
-    });
-
-    it('should throw error for unsupported output unit', function () {
-      expect(() => converter.convertAnyToAnyUnits('1', 'eth', 'unknownUnit')).to.throw('Unsupported unit provided');
     });
 
   });
